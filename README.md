@@ -2,23 +2,45 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js
+- Podman and `podman-compose`
+
+### Run locally
+
+Copy the development environment template:
+
+```bash
+cp .env.example .env
+```
+
+Start PostgreSQL and install the application dependencies:
+
+```bash
+npm run db:up
+npm install
+```
+
+Then run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser. You can start editing the page by modifying `app/page.tsx`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Check the PostgreSQL connection at
+[http://localhost:3000/api/health/database](http://localhost:3000/api/health/database).
+A healthy database returns `{"status":"ok"}`; an unavailable database returns HTTP 503.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+PostgreSQL data is stored in a named volume and remains available after stopping the containers:
+
+```bash
+npm run db:down
+```
+
+The credentials in `.env.example` are for local development only. Use a secret manager for deployed environments.
 
 ## Learn More
 
