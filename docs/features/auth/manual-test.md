@@ -1,4 +1,4 @@
-# Simple Auth — Manual Test
+# Auth — Manual Test
 
 Run these checks against a fresh local environment:
 

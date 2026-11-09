@@ -21,7 +21,7 @@ Durable decisions and context for future sessions.
 - Unit tests: `npm test` (Node test runner, no database).
 - E2E tests: `npm run test:e2e` (Playwright + system Chrome); global setup
   migrates and seeds a dedicated e2e admin.
-- Manual checklist: `docs/features/simple-auth/manual-test.md`.
+- Manual checklist: `docs/features/auth/manual-test.md`.
 - Verified: unit 12/12, e2e 4/4, `tsc --noEmit`, `eslint`, and `next build`.
 
 ## Constraints

@@ -18,7 +18,7 @@ Status: `[x]` done, `[ ]` next.
 - [x] Playwright end-to-end tests for redirect, forged cookie, invalid login,
   valid login, and sign-out.
 - [x] Manual test checklist in
-  `docs/features/simple-auth/manual-test.md`.
+  `docs/features/auth/manual-test.md`.
 - [x] `npm test` includes feature tests; `npm run test:e2e` runs the browser
   suite.
 

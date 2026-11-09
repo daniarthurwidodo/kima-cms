@@ -2,7 +2,7 @@ import { loadEnv } from "./load-env.mjs";
 import { getPool } from "../lib/db.ts";
 import { logger } from "../lib/logger.ts";
 import { hashPassword } from "../lib/password.ts";
-import { PASSWORD_MIN_LENGTH } from "../features/simple-auth/simple-auth.constants.ts";
+import { PASSWORD_MIN_LENGTH } from "../features/auth/auth.constants.ts";
 
 loadEnv();
 

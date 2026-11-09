@@ -1,8 +1,8 @@
 import {
   MAX_EMAIL_LENGTH,
   MAX_PASSWORD_LENGTH,
-} from "./simple-auth.constants.ts";
-import type { LoginInput } from "./simple-auth.types";
+} from "./auth.constants.ts";
+import type { LoginInput } from "./auth.types";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const INVALID_INPUT_MESSAGE = "Enter a valid email address and password.";

@@ -1,14 +1,14 @@
 import type { Pool } from "pg";
 import { verifyPassword } from "@/lib/password";
 import { createSessionToken, hashSessionToken } from "@/lib/token";
-import { SESSION_DURATION_MS } from "./simple-auth.constants";
+import { SESSION_DURATION_MS } from "./auth.constants";
 import {
   deleteSession,
   findUserByEmail,
   findUserBySessionTokenHash,
   insertSession,
-} from "./simple-auth.repository";
-import type { AuthUser, LoginInput, Session } from "./simple-auth.types";
+} from "./auth.repository";
+import type { AuthUser, LoginInput, Session } from "./auth.types";
 
 // shortcut: unknown emails skip scrypt, so response time can reveal whether an
 // account exists; add a dummy hash verification if user enumeration matters.

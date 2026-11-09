@@ -1,4 +1,4 @@
-# Simple Auth — Memory
+# Auth — Memory
 
 ## Decisions
 
@@ -14,8 +14,8 @@
   session check is request-time under Cache Components.
 - 2026-11-09 — `/admin` is protected; `/` and `/login` stay public, so the
   existing dashboard moved from `app/page.tsx` to `app/admin/page.tsx`.
-- 2026-11-09 — Feature code lives in `features/simple-auth/`; docs in
-  `docs/features/simple-auth/`.
+- 2026-11-09 — Feature code lives in `features/auth/`; docs in
+  `docs/features/auth/`.
 
 ## Gotchas
 
@@ -33,7 +33,7 @@
 - E2E: `npm run test:e2e` runs Playwright with the installed system Chrome
   (`channel: "chrome"`). `e2e/global-setup.ts` applies migrations and seeds
   `e2e-admin@kima.local` before the suite.
-- Manual: `docs/features/simple-auth/manual-test.md` covers redirects, invalid
+- Manual: `docs/features/auth/manual-test.md` covers redirects, invalid
   and valid sign-in, sign-out, forged/expired sessions, inactive users, and
   seed idempotency.
 - Gotcha: Next.js adds its own route announcer with `role="alert"`, so the

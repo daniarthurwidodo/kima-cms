@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test lib/*.test.mjs features/simple-auth/*.test.mjs",
+    "test": "node --test lib/*.test.mjs features/auth/*.test.mjs features/renungan/*.test.mjs",
     "test:e2e": "playwright test",
     "db:up": "podman-compose -f compose.yaml up -d",
     "db:down": "podman-compose -f compose.yaml down",

@@ -1,4 +1,4 @@
-import { logoutAction } from "@/features/simple-auth/simple-auth.actions";
+import { logoutAction } from "@/features/auth/auth.actions";
 
 const iconPaths = {
   dashboard: <><rect x="3" y="3" width="7" height="7" rx="2" /><rect x="14" y="3" width="7" height="7" rx="2" /><rect x="3" y="14" width="7" height="7" rx="2" /><rect x="14" y="14" width="7" height="7" rx="2" /></>,
@@ -23,10 +23,11 @@ const iconPaths = {
 };
 
 type IconName = keyof typeof iconPaths;
-type NavigationItem = { label: string; icon: IconName; active?: boolean; count?: number };
+type NavigationItem = { label: string; icon: IconName; active?: boolean; count?: number; href?: string };
 
 const workspaceNavigation: NavigationItem[] = [
   { label: "Overview", icon: "dashboard", active: true },
+  { label: "Renungan", icon: "clock", href: "/admin/renungan" },
   { label: "Content", icon: "file", count: 12 },
   { label: "Media library", icon: "image" },
 ];
@@ -63,7 +64,7 @@ function Brand() {
 }
 
 function NavigationList({ items }: { items: NavigationItem[] }) {
-  return <ul className="space-y-1">{items.map((item) => <li key={item.label}><a href="#" popoverTarget="mobile-navigation" popoverTargetAction="hide" aria-current={item.active ? "page" : undefined} className={`group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-violet-600 ${item.active ? "bg-violet-50 text-violet-700" : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"}`}><Icon name={item.icon} className="size-[18px]" /><span className="flex-1">{item.label}</span>{item.count && <span className={`rounded-md px-2 py-0.5 text-xs ${item.active ? "bg-violet-100" : "bg-slate-100 text-slate-500"}`}>{item.count}</span>}</a></li>)}</ul>;
+  return <ul className="space-y-1">{items.map((item) => <li key={item.label}><a href={item.href ?? "#"} popoverTarget="mobile-navigation" popoverTargetAction="hide" aria-current={item.active ? "page" : undefined} className={`group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-violet-600 ${item.active ? "bg-violet-50 text-violet-700" : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"}`}><Icon name={item.icon} className="size-[18px]" /><span className="flex-1">{item.label}</span>{item.count && <span className={`rounded-md px-2 py-0.5 text-xs ${item.active ? "bg-violet-100" : "bg-slate-100 text-slate-500"}`}>{item.count}</span>}</a></li>)}</ul>;
 }
 
 function SidebarContent({ isMobile = false }: { isMobile?: boolean }) {

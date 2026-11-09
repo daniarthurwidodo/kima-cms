@@ -1,4 +1,4 @@
-# Simple Auth — Technical Solution
+# Auth — Technical Solution
 
 ## Data model
 
@@ -54,13 +54,13 @@ redirects to `/login`.
 
 | File | Responsibility |
 | --- | --- |
-| `simple-auth.constants.ts` | Cookie name, paths, TTL, limits, messages. |
-| `simple-auth.types.ts` | `AuthUser`, `Session`, `LoginInput`. |
-| `simple-auth.validation.ts` | `parseLoginInput` (pure). |
-| `simple-auth.repository.ts` | Parameterized SQL and row mapping. |
-| `simple-auth.service.ts` | Authenticate, resolve, end session. |
-| `simple-auth.session.ts` | Next.js cookie/current-user helpers. |
-| `simple-auth.actions.ts` | `loginAction`, `logoutAction`. |
+| `auth.constants.ts` | Cookie name, paths, TTL, limits, messages. |
+| `auth.types.ts` | `AuthUser`, `Session`, `LoginInput`. |
+| `auth.validation.ts` | `parseLoginInput` (pure). |
+| `auth.repository.ts` | Parameterized SQL and row mapping. |
+| `auth.service.ts` | Authenticate, resolve, end session. |
+| `auth.session.ts` | Next.js cookie/current-user helpers. |
+| `auth.actions.ts` | `loginAction`, `logoutAction`. |
 | `components/login-form.tsx` | Client form and error display. |
 | `app/login/page.tsx` | Login page. |
 | `app/admin/layout.tsx` | Authoritative guard. |

@@ -1,4 +1,4 @@
-# Simple Auth — Tasks
+# Auth — Tasks
 
 Status: `[x]` done, `[ ]` next.
 
@@ -27,7 +27,7 @@ Status: `[x]` done, `[ ]` next.
 - [x] Seed-admin script.
 - [x] Unit tests for input validation.
 - [x] Playwright end-to-end suite (`e2e/auth.spec.ts`).
-- [x] Manual test checklist (`docs/features/simple-auth/manual-test.md`).
+- [x] Manual test checklist (`docs/features/auth/manual-test.md`).
 
 ## Next
 

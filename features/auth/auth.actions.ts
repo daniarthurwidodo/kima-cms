@@ -8,14 +8,14 @@ import {
   LOGIN_ERROR_MESSAGE,
   LOGIN_FAILED_MESSAGE,
   LOGIN_PATH,
-} from "./simple-auth.constants";
-import { authenticate, endSession } from "./simple-auth.service";
+} from "./auth.constants";
+import { authenticate, endSession } from "./auth.service";
 import {
   clearSessionCookie,
   getSessionToken,
   setSessionCookie,
-} from "./simple-auth.session";
-import { parseLoginInput } from "./simple-auth.validation";
+} from "./auth.session";
+import { parseLoginInput } from "./auth.validation";
 
 export type LoginState = { error?: string };
 

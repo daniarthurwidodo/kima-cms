@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
 import { getPool } from "@/lib/db";
-import { SESSION_COOKIE_NAME } from "./simple-auth.constants";
-import { resolveSession } from "./simple-auth.service";
-import type { AuthUser } from "./simple-auth.types";
+import { SESSION_COOKIE_NAME } from "./auth.constants";
+import { resolveSession } from "./auth.service";
+import type { AuthUser } from "./auth.types";
 
 export async function getSessionToken(): Promise<string | undefined> {
   return (await cookies()).get(SESSION_COOKIE_NAME)?.value;

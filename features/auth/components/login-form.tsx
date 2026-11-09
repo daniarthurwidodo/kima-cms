@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { loginAction, type LoginState } from "../simple-auth.actions";
+import { loginAction, type LoginState } from "../auth.actions";
 
 const INITIAL_STATE: LoginState = {};
 const INPUT_CLASSES =

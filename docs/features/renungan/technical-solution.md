@@ -114,7 +114,9 @@ Rules:
 - A source URL can disappear if the uploader removes the image; the app's
   gradient fallback covers that case.
 
-## Files (planned)
+## Files
+
+Implemented under `features/renungan/`; `lib/http.ts` is shared.
 
 | File | Responsibility |
 | --- | --- |
@@ -124,10 +126,18 @@ Rules:
 | `features/renungan/renungan.repository.ts` | Parameterized SQL, row mapping. |
 | `features/renungan/renungan.service.ts` | One-per-date, publish rules, upsert. |
 | `features/renungan/renungan.image.ts` | Openverse fallback search + attribution mapping. |
-| `features/renungan/renungan.actions.ts` | Admin create/update actions. |
-| `features/renungan/components/` | Calendar and editor UI. |
+| `features/renungan/renungan.calendar.ts` | Month grid and date math (pure). |
+| `features/renungan/renungan.actions.ts` | Admin create/update action. |
+| `features/renungan/hooks/use-renungan-form.ts` | Form action/pending state. |
+| `features/renungan/components/renungan-calendar.tsx` | Month calendar. |
+| `features/renungan/components/renungan-form.tsx` | Editor form. |
+| `app/admin/renungan/page.tsx` | Calendar page. |
+| `app/admin/renungan/[date]/page.tsx` | Date editor page. |
 | `app/api/renungan/daily/route.ts` | Daily handler. |
 | `app/api/renungan/route.ts` | Date handler. |
+
+Shared helper: `lib/http.ts` (`jsonResponse`, `jsonError`) so other features
+can reuse the same response shape.
 
 ## Security and limits
 

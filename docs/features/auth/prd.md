@@ -1,4 +1,4 @@
-# Simple Auth — PRD
+# Auth — PRD
 
 ## Problem
 

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { parseLoginInput } from "./simple-auth.validation.ts";
+import { parseLoginInput } from "./auth.validation.ts";
 
 function createFormData(email, password) {
   const formData = new FormData();

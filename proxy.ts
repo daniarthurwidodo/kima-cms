@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 import {
   LOGIN_PATH,
   SESSION_COOKIE_NAME,
-} from "@/features/simple-auth/simple-auth.constants";
+} from "@/features/auth/auth.constants";
 
 export function proxy(request: NextRequest) {
   if (request.cookies.has(SESSION_COOKIE_NAME)) return NextResponse.next();

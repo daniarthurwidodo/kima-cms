@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
-import { LOGIN_PATH } from "@/features/simple-auth/simple-auth.constants";
-import { getCurrentUser } from "@/features/simple-auth/simple-auth.session";
+import { LOGIN_PATH } from "@/features/auth/auth.constants";
+import { getCurrentUser } from "@/features/auth/auth.session";
 
 export const instant = false;
 

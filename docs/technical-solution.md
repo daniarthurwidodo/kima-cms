@@ -69,7 +69,7 @@ before.
 Opaque session tokens, hashed at rest, stored in an `httpOnly` cookie.
 `proxy.ts` performs an optimistic cookie-presence redirect; the admin layout
 performs the real database-backed check. See
-[`features/simple-auth/technical-solution.md`](features/simple-auth/technical-solution.md).
+[`features/auth/technical-solution.md`](features/auth/technical-solution.md).
 
 ## Request flow (admin)
 

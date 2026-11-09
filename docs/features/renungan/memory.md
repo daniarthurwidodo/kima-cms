@@ -22,6 +22,8 @@
   binaries. The CMS does not proxy or re-host images.
 - 2026-11-09 — Never fail the save because image resolution failed; the entry
   is stored without an image and the app shows a gradient.
+- 2026-11-09 — JSON responses use shared `lib/http.ts` helpers (`jsonResponse`,
+  `jsonError`) instead of per-feature response wrappers.
 - 2026-11-09 — Resolve "today" server-side with a fixed timezone, not the
   device clock.
 
@@ -40,9 +42,12 @@
 
 ## Gotchas to expect
 
-- `DATE` columns come back from `pg` as strings; do not round-trip them through
-  `Date` and timezones without care.
+- `DATE` columns come back from `pg` as strings; the repository selects
+  `publish_date::text` to avoid local-timezone shifts.
 - `BIGINT` comes back as a string, consistent with the auth feature.
+- Openverse results include a ready-made `attribution` string; store it as-is.
+- A blank image URL re-runs Openverse on every save; the form prefills the
+  stored URL, so editors normally do not hit this.
 - A date-only model cannot express a "publish at 06:00" rule; that is a later
   read-time or scheduler change.
 - Openverse anonymous search allows 20 requests/minute, 200/day, and at most
@@ -56,5 +61,8 @@
 
 ## Verification
 
-- Not yet run. Implementation plan and checks are in `tasks.md` and
-  `technical-solution.md`.
+- `npm test` — 27 passing (validation, calendar, timezone, Openverse mapping).
+- `tsc --noEmit` and `eslint` — clean.
+- Migration `0002_renungan` applied locally.
+- Admin flow verified once in Chrome: login → calendar → create → calendar →
+  edit. Temporary test row removed afterwards.

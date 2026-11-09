@@ -1,5 +1,5 @@
 import type { Pool } from "pg";
-import type { AuthUser, PasswordUser } from "./simple-auth.types";
+import type { AuthUser, PasswordUser } from "./auth.types";
 
 const USER_WITH_PASSWORD_QUERY = `
   SELECT id, email, name, password_hash, is_active

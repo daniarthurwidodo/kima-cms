@@ -1,7 +1,7 @@
 # Renungan — Tasks
 
-Status: `[x]` done, `[ ]` next. Nothing is implemented yet; this is the
-assessment backlog in suggested order.
+Status: `[x]` done, `[ ]` next. Schema, core, admin UI, and REST API are
+implemented; integration tests and the open decisions remain.
 
 ## Assessment
 
@@ -12,34 +12,37 @@ assessment backlog in suggested order.
 
 ## Schema
 
-- [ ] `0002_renungan` migration with the unique date index and down file.
+- [x] `0002_renungan` migration with the unique date index and down file.
 - [ ] Migration runs cleanly on a fresh database and rolls back.
 
 ## Feature
 
-- [ ] Types, constants, and pure validation for date and fields.
-- [ ] Repository: find by date, list by month, upsert.
-- [ ] Service: one-per-date rule, publish filtering, date resolution.
-- [ ] Optional image URL field with `http(s)` validation.
-- [ ] Openverse fallback when the image URL is empty: first result plus
+- [x] Types, constants, and pure validation for date and fields.
+- [x] Repository: find by date, list by month, insert, update.
+- [x] Service: one-per-date rule, publish filtering, date resolution.
+- [x] Optional image URL field with `http(s)` validation.
+- [x] Openverse fallback when the image URL is empty: first result plus
       attribution, never failing the save.
-- [ ] Admin actions for create/update/unpublish.
-- [ ] Month calendar page with per-day status.
-- [ ] Date editor form with the image URL field and Openverse auto-fill.
+- [x] Admin actions for create/update/unpublish.
+- [x] Month calendar page with per-day status.
+- [x] Date editor form with the image URL field and Openverse auto-fill.
+- [x] Form action wiring in a `useRenunganForm` hook.
 
 ## API
 
-- [ ] `GET /api/renungan/daily` with configurable timezone.
-- [ ] `GET /api/renungan?date=YYYY-MM-DD`.
-- [ ] Stable `400`/`404` response shapes and cache headers.
+- [x] `GET /api/renungan/daily` with configurable timezone.
+- [x] `GET /api/renungan?date=YYYY-MM-DD`.
+- [x] Stable `400`/`404` response shapes and cache headers.
 
 ## Verification
 
-- [ ] Unit tests for validation, including the image URL scheme.
+- [x] Unit tests for validation, image URL scheme, Openverse mapping, and
+      calendar/date helpers.
 - [ ] Service tests for duplicate dates, draft filtering, and the Openverse
       fallback when the image URL is empty or the search fails.
 - [ ] Route tests for status codes and the timezone boundary.
-- [ ] Manual checklist for admin create/edit/unpublish and mobile rendering.
+- [ ] Manual checklist for unpublish and mobile rendering (create/edit flow
+      verified once in the browser).
 
 ## Next (after this iteration)
 
