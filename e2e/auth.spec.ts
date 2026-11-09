@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { E2E_ADMIN, E2E_BASE_URL } from "./global-setup";
+import { signIn } from "./sign-in";
 
 test("redirects anonymous visitors to the login page", async ({ page }) => {
   await page.goto("/admin");
@@ -37,12 +38,8 @@ test("shows a generic error for invalid credentials", async ({ page }) => {
 });
 
 test("signs in, opens the admin workspace, and signs out", async ({ page }) => {
-  await page.goto("/login");
-  await page.getByLabel("Email").fill(E2E_ADMIN.email);
-  await page.getByLabel("Password").fill(E2E_ADMIN.password);
-  await page.getByRole("button", { name: "Sign in" }).click();
+  await signIn(page);
 
-  await expect(page).toHaveURL(/\/admin$/);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
     "Good morning",
   );

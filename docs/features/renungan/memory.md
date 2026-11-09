@@ -48,6 +48,8 @@
 - Openverse results include a ready-made `attribution` string; store it as-is.
 - A blank image URL re-runs Openverse on every save; the form prefills the
   stored URL, so editors normally do not hit this.
+- Integration tests write to the real `renungan` table on 2099 dates and delete
+  them in `before`/`after`; they skip when `DATABASE_URL` is missing.
 - A date-only model cannot express a "publish at 06:00" rule; that is a later
   read-time or scheduler change.
 - Openverse anonymous search allows 20 requests/minute, 200/day, and at most
@@ -61,8 +63,13 @@
 
 ## Verification
 
-- `npm test` — 27 passing (validation, calendar, timezone, Openverse mapping).
+- `npm test` — 33 passing, including DB-backed service tests (duplicate date,
+  draft filtering, unpublish, Openverse fallback) against far-future 2099
+  dates that are cleaned up afterwards; they skip when `DATABASE_URL` is
+  absent.
 - `tsc --noEmit` and `eslint` — clean.
+- `npm run test:e2e` — 7 passing (4 auth + 3 renungan: admin create →
+  REST read, `400`/`404` cases, daily endpoint).
 - Migration `0002_renungan` applied locally.
 - Admin flow verified once in Chrome: login → calendar → create → calendar →
   edit. Temporary test row removed afterwards.

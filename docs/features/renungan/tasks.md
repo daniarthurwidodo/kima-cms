@@ -38,9 +38,10 @@ implemented; integration tests and the open decisions remain.
 
 - [x] Unit tests for validation, image URL scheme, Openverse mapping, and
       calendar/date helpers.
-- [ ] Service tests for duplicate dates, draft filtering, and the Openverse
+- [x] Service tests for duplicate dates, draft filtering, and the Openverse
       fallback when the image URL is empty or the search fails.
-- [ ] Route tests for status codes and the timezone boundary.
+- [x] Route tests for status codes and the timezone boundary.
+- [x] Browser end-to-end flow: calendar create → REST read → daily override.
 - [ ] Manual checklist for unpublish and mobile rendering (create/edit flow
       verified once in the browser).
 
