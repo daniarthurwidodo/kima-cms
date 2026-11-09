@@ -40,7 +40,21 @@ PostgreSQL data is stored in a named volume and remains available after stopping
 npm run db:down
 ```
 
+Apply the database migrations and seed the first administrator:
+
+```bash
+npm run db:migrate
+npm run db:seed-admin
+```
+
+The seeded account uses `ADMIN_EMAIL` and `ADMIN_PASSWORD` from `.env` (at least
+8 characters). Sign in at [http://localhost:3000/login](http://localhost:3000/login);
+the admin workspace is at `/admin`.
+
 The credentials in `.env.example` are for local development only. Use a secret manager for deployed environments.
+
+Architecture and feature documentation live in [`docs/`](docs/): start with
+[`docs/technical-solution.md`](docs/technical-solution.md).
 
 ## Learn More
 

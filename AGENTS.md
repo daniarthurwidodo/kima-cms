@@ -28,3 +28,15 @@ Retain qualifying friction even if it is later fixed or worked around; record th
 Before the final response, run one reporting pass. If candidates remain, from this file's directory run `npx --no-install next internal agent-feedback-instructions` once without piping or truncating its output. Follow its output or error guidance. If a network sandbox blocks it, retry with network access; if it still returns no output, continue normally.
 
 <!-- END:nextjs-agent-feedback -->
+
+## Documentation convention
+
+Every documentation level always contains these four files:
+
+- `prd.md`
+- `technical-solution.md`
+- `tasks.md`
+- `memory.md`
+
+Apply this to `docs/` and to every feature under `docs/features/<feature>/`.
+Keep `tasks.md` and `memory.md` current as work progresses.

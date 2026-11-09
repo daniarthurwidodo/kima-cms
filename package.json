@@ -10,9 +10,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test lib/*.test.mjs",
+    "test": "node --test lib/*.test.mjs features/simple-auth/*.test.mjs",
+    "test:e2e": "playwright test",
     "db:up": "podman-compose -f compose.yaml up -d",
-    "db:down": "podman-compose -f compose.yaml down"
+    "db:down": "podman-compose -f compose.yaml down",
+    "db:migrate": "node scripts/migrate.mjs",
+    "db:seed-admin": "node scripts/seed-admin.mjs"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.107.1",
@@ -23,6 +26,7 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.0",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/pg": "^8.23.1",
